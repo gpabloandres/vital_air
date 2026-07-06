@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitalAir | Inversión Inteligente que Salva Vidas</title>
+
+    <!-- Google Fonts: Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome para Iconografía Profesional -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS (Animaciones al hacer scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuración del Tema de Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                light: "#e0f2fe",
+                DEFAULT: "#0ea5e9", // Azul aire limpio
+                dark: "#0369a1",
+              },
+              accent: {
+                DEFAULT: "#f97316", // Naranja alerta/atención/acción
+                hover: "#ea580c",
+              },
+              dark: "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Estilos Personalizados Críticos -->
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc;
+        color: #334155;
+      }
+
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #0ea5e9, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Estilización moderna del Slider de Rango */
+      input[type="range"]::-webkit-slider-thumb {
+        pointer-events: all;
+        width: 24px;
+        height: 24px;
+        -webkit-appearance: none;
+        @apply w-6 h-6 appearance-none pointer-events-auto bg-accent rounded-full border-4 border-white shadow-lg cursor-pointer transition-transform duration-150 hover:scale-110;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-brand selection:text-white">
+    <!-- Barra de Navegación -->
+    <nav
+      class="fixed w-full z-50 glass-effect transition-all duration-300 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div
+            class="flex-shrink-0 flex items-center gap-3 cursor-pointer"
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          >
+            <!-- Logo de la Empresa (VitalAir) -->
+            <img
+              src="images/logo.png"
+              alt="Logo VitalAir"
+              class="h-12 w-12 object-contain rounded-full shadow-sm bg-white"
+              onerror="this.style.display = 'none'"
+            />
+            <span class="font-bold text-2xl tracking-tight text-slate-800"
+              >Vital<span class="text-brand">Air</span></span
+            >
+          </div>
+
+          <!-- Menú de Escritorio -->
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="#solucion"
+              class="text-slate-600 hover:text-brand font-medium transition-colors"
+              >La Solución</a
+            >
+            <a
+              href="#pitch"
+              class="text-slate-600 hover:text-brand font-medium transition-colors"
+              >Video Pitch</a
+            >
+            <a
+              href="#inversion"
+              class="text-slate-600 hover:text-brand font-medium transition-colors"
+              >Rentabilidad</a
+            >
+            <a
+              href="#especificaciones"
+              class="text-slate-600 hover:text-brand font-medium transition-colors"
+              >Producto</a
+            >
+            <a
+              href="#contacto"
+              class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-full font-semibold transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
+            >
+              Adquirir Acciones
+            </a>
+          </div>
+
+          <!-- Botón Menú Móvil -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-slate-600 hover:text-brand focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menú Móvil Desplegable -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-slate-100"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+          <a
+            href="#solucion"
+            class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md"
+            >La Solución</a
+          >
+          <a
+            href="#pitch"
+            class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md"
+            >Video Pitch</a
+          >
+          <a
+            href="#inversion"
+            class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md"
+            >Rentabilidad</a
+          >
+          <a
+            href="#especificaciones"
+            class="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md"
+            >Producto</a
+          >
+          <a
+            href="#contacto"
+            class="block px-3 py-2 text-accent font-bold hover:bg-slate-50 rounded-md"
+            >Invertir Ahora</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <!-- Luces de fondo decorativas -->
+      <div
+        class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand/10 blur-3xl opacity-50"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-accent/10 blur-3xl opacity-50"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right" data-aos-duration="1000">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light text-brand-dark font-semibold text-sm mb-6 shadow-sm"
+            >
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-3 w-3 bg-brand"
+                ></span>
+              </span>
+              Prácticas Profesionalizantes - Tierra del Fuego 2026
+            </div>
+            <div
+              class="flex items-center gap-4 mb-4"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
+              <img
+                src="images/logo.png"
+                alt="Logo VitalAir"
+                class="h-16 w-16 object-contain rounded-full shadow-md border-2 border-white bg-white"
+              />
+              <span
+                class="font-extrabold text-4xl text-slate-800 tracking-tight"
+                >Vital<span class="text-brand">Air</span></span
+              >
+            </div>
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6"
+            >
+              El aire que respiras, <br />
+              <span class="gradient-text">monitoreado e inteligente.</span>
+            </h1>
+            <p class="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
+              Somos estudiantes técnicos desarrollando un dispositivo seguro y
+              preciso contra el Monóxido de Carbono. Hardware de alta calidad
+              diseñado para ambientes calefaccionados.
+              <strong
+                >Súmate como accionista y sé parte de esta gran
+                oportunidad.</strong
+              >
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#inversion"
+                class="bg-accent hover:bg-accent-hover text-white text-center px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-orange-500/30"
+              >
+                Simular Inversión
+              </a>
+              <a
+                href="#pitch"
+                class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-center px-8 py-4 rounded-full font-bold text-lg transition-all shadow-sm flex items-center justify-center gap-2"
+              >
+                <i class="fas fa-play-circle text-brand"></i> Ver Video Pitch
+              </a>
+            </div>
+          </div>
+
+          <!-- Presentación del Producto -->
+          <div
+            class="relative w-full h-[400px] lg:h-[500px]"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent rounded-3xl transform rotate-3"
+            ></div>
+            <div
+              class="absolute inset-0 bg-white rounded-3xl shadow-2xl border border-slate-100 p-4 grid grid-cols-2 grid-rows-2 gap-4 transform hover:scale-[1.02] transition-transform duration-500"
+            >
+              <div
+                class="col-span-2 row-span-1 bg-slate-50 rounded-2xl p-4 flex items-center justify-center relative overflow-hidden group"
+              >
+                <img
+                  src="images/producto1.png"
+                  alt="Perspectiva Principal"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div
+                class="col-span-1 row-span-1 bg-slate-50 rounded-2xl p-4 flex items-center justify-center relative overflow-hidden group"
+              >
+                <img
+                  src="images/producto2.png"
+                  alt="Perspectiva Lateral"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div
+                class="col-span-1 row-span-1 bg-slate-50 rounded-2xl p-4 flex items-center justify-center relative overflow-hidden group"
+              >
+                <img
+                  src="images/packaging.png"
+                  alt="Packaging"
+                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- El Problema y la Solución -->
+    <section id="solucion" class="py-20 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            La Realidad de Nuestros Ambientes
+          </h2>
+          <div class="w-24 h-1 bg-brand mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Problema -->
+          <div
+            class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-14 h-14 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm"
+            >
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">
+              El Enemigo Silencioso
+            </h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              En climas fríos como el de nuestra provincia, la calefacción
+              continua e intensa sumada a la escasa ventilación crea escenarios
+              de riesgo por acumulación de Monóxido de Carbono (CO). Al ser
+              incoloro e inodoro, es indetectable por el ser humano hasta que ya
+              es tarde.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-slate-700 font-medium">
+                <i class="fas fa-times-circle text-red-400 mt-1"></i>
+                <span
+                  >Equipos importados caros y de difícil configuración.</span
+                >
+              </li>
+              <li class="flex items-start gap-3 text-slate-700 font-medium">
+                <i class="fas fa-times-circle text-red-400 mt-1"></i>
+                <span
+                  >Falta de opciones visuales y adaptadas al entorno
+                  regional.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Solución -->
+          <div
+            class="bg-brand-light/20 p-8 rounded-3xl border border-brand/20 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="absolute -right-10 -top-10 w-40 h-40 bg-brand/10 rounded-full blur-2xl"
+            ></div>
+            <div
+              class="w-14 h-14 bg-brand text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-md"
+            >
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3
+              class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3"
+            >
+              <img
+                src="images/producto3.png"
+                alt="Logo VitalAir"
+                class="h-8 w-8 object-contain rounded-full shadow-sm bg-white"
+              />
+              <span>VitalAir: Tecnología "Plug & Play"</span>
+            </h3>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Desarrollamos una solución autónoma, económica y confiable que
+              mide de manera continua la concentración de CO en partes por
+              millón (ppm). El dispositivo emite alertas sonoras y lumínicas
+              inmediatas en el momento exacto en que detecta anomalías.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-slate-700 font-medium">
+                <i class="fas fa-check-circle text-brand mt-1"></i>
+                <span
+                  >Sistema LED integrado que indica el estado del aire.</span
+                >
+              </li>
+              <li class="flex items-start gap-3 text-slate-700 font-medium">
+                <i class="fas fa-check-circle text-brand mt-1"></i>
+                <span
+                  >Vínculo de red simple vía WiFiManager local integrado.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Pitch -->
+    <section id="pitch" class="py-20 bg-slate-900 text-white relative">
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        data-aos="zoom-in"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          El Pitch del Proyecto
+        </h2>
+        <p class="text-slate-300 mb-10 max-w-2xl mx-auto">
+          Conoce más sobre la tecnología de VitalAir y el modelo de negocio
+          explicado de primera mano por los estudiantes de último año.
+        </p>
+
+        <!-- Placeholder Interactivo de Video -->
+        <div
+          class="relative w-full pt-[56.25%] rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-slate-800 group"
+        >
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center bg-[url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
+          >
+            <div
+              class="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/60 transition-colors"
+            ></div>
+
+            <div
+              class="relative z-10 transform group-hover:scale-110 transition-transform duration-300"
+            >
+              <div
+                class="w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(249,115,22,0.6)]"
+              >
+                <i class="fas fa-play text-3xl text-white ml-2"></i>
+              </div>
+            </div>
+            <p
+              class="relative z-10 mt-6 text-lg font-bold tracking-widest uppercase text-white/90"
+            >
+              Video Pitch en Producción
+            </p>
+            <p class="relative z-10 text-xs text-slate-400 mt-2">
+              Próximamente disponible para reproducir aquí mismo
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Financiera y Simulador Progresivo -->
+    <section id="inversion" class="py-24 bg-slate-50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Estructura Financiera y Capital
+          </h2>
+          <div class="w-24 h-1 bg-brand mx-auto rounded-full mb-6"></div>
+          <p class="text-slate-600 max-w-3xl mx-auto text-lg">
+            Presentamos las proyecciones financieras oficiales de nuestro plan
+            de negocios 2026. Al adquirir acciones, participas directamente en
+            la distribución de las utilidades netas generadas por las ventas
+            estimadas de la startup.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <!-- Datos Financieros -->
+          <div class="space-y-6" data-aos="fade-right">
+            <div
+              class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100"
+            >
+              <div
+                class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4"
+              >
+                <h3
+                  class="text-2xl font-bold text-slate-800 flex items-center gap-3"
+                >
+                  <i class="fas fa-chart-pie text-brand"></i> Proyecciones del
+                  Período
+                </h3>
+                <!-- Selector de Escenario Financiero -->
+                <div
+                  class="flex bg-slate-100 p-1 rounded-lg w-full sm:w-auto shadow-inner"
+                >
+                  <button
+                    id="btn-objetivo"
+                    class="flex-1 px-4 py-1.5 rounded-md text-sm font-bold bg-white shadow-sm text-slate-800 transition-all"
+                  >
+                    Objetivo
+                  </button>
+                  <button
+                    id="btn-optimista"
+                    class="flex-1 px-4 py-1.5 rounded-md text-sm font-bold text-slate-500 hover:text-slate-800 transition-all"
+                  >
+                    Optimista
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center border-b border-slate-100 pb-3"
+                >
+                  <div>
+                    <p class="font-bold text-slate-700">Objetivo de Ventas</p>
+                    <p class="text-xs text-slate-500">
+                      Módulos comercializados
+                    </p>
+                  </div>
+                  <p id="disp-ventas" class="text-lg font-bold text-slate-800">
+                    5 unidades
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-slate-100 pb-3"
+                >
+                  <div>
+                    <p class="font-bold text-slate-700">
+                      Ingresos Totales Brutos
+                    </p>
+                    <p class="text-xs text-slate-500">Flujo neto por ventas</p>
+                  </div>
+                  <p
+                    id="disp-ingresos"
+                    class="text-lg font-bold text-brand-dark"
+                  >
+                    $350.000
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-slate-100 pb-3"
+                >
+                  <div>
+                    <p class="font-bold text-slate-700">
+                      Costos Operativos Totales
+                    </p>
+                    <p class="text-xs text-slate-500">
+                      Fijos ($89.720) + Variables de producción
+                    </p>
+                  </div>
+                  <p id="disp-costos" class="text-lg font-bold text-slate-600">
+                    $326.896
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center bg-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm"
+                >
+                  <div>
+                    <p class="font-black text-emerald-800">
+                      Ganancia Neta Final
+                    </p>
+                    <p class="text-xs text-emerald-600">
+                      Luego de deducción de impuestos Junior (10%)
+                    </p>
+                  </div>
+                  <p
+                    id="disp-ganancia"
+                    class="text-xl font-black text-emerald-700"
+                  >
+                    $21.949
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 text-sm text-slate-500 italic leading-relaxed">
+                "Con el fin de autofinanciar la compra de insumos, herramientas
+                y producción inicial, emitimos un pool selecto de
+                <strong>50 acciones</strong> de propiedad de la startup escolar.
+                El valor de aporte inicial por acción es de
+                <strong>$6.538 ARS</strong>."
+              </div>
+            </div>
+          </div>
+
+          <!-- Simulador de Compra de Acciones -->
+          <div
+            class="bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl relative"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div
+              class="absolute -top-4 -right-4 bg-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg shadow-orange-500/40"
+            >
+              Simulador Inversor
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">
+              Calcula tu rentabilidad
+            </h3>
+            <p class="text-slate-400 text-sm mb-6">
+              Valor por acción: <strong class="text-white">$6.538 ARS</strong>.
+            </p>
+
+            <div
+              class="mb-6 bg-slate-800 p-6 rounded-2xl border border-slate-700"
+            >
+              <div class="flex justify-between text-white font-bold mb-4">
+                <span class="text-lg"
+                  >Acciones a adquirir:
+                  <span id="shares-value" class="text-brand text-2xl ml-2"
+                    >2</span
+                  ></span
+                >
+                <span class="text-xs text-slate-400 self-center"
+                  >Participación:
+                  <span id="ownership-value" class="text-white">4.0</span
+                  >%</span
+                >
+              </div>
+              <input
+                type="range"
+                id="investment-slider"
+                min="1"
+                max="25"
+                value="2"
+                class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-brand"
+              />
+              <div class="flex justify-between text-xs text-slate-400 mt-3">
+                <span>1 Acción ($6.538)</span>
+                <span>25 Acciones ($163.450)</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div
+                class="bg-white/10 rounded-2xl p-4 border border-white/10 flex flex-col justify-center"
+              >
+                <p
+                  class="text-[11px] sm:text-xs text-slate-300 uppercase tracking-wider font-bold mb-1"
+                >
+                  Aporte de Capital
+                </p>
+                <p class="text-xl sm:text-2xl font-black text-white">
+                  $<span id="investment-value">13.076</span>
+                </p>
+              </div>
+              <div
+                class="bg-brand/20 rounded-2xl p-4 border border-brand/30 flex flex-col justify-center"
+              >
+                <p
+                  class="text-[11px] sm:text-xs text-brand-light uppercase tracking-wider font-bold mb-1"
+                >
+                  Retorno Estimado
+                </p>
+                <p class="text-xl sm:text-2xl font-black text-emerald-400">
+                  $<span id="return-value">13.954</span>
+                </p>
+                <p
+                  class="text-xs text-emerald-300 mt-1 font-bold"
+                  id="roi-percentage"
+                >
+                  +6.7% ROI
+                </p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              * El retorno comprende la devolución total de tu capital inicial
+              ($6.538 por acción) al cerrar la empresa más tu cuota de
+              dividendos de las utilidades netas proyectadas en el
+              <strong class="text-white" id="text-escenario-activo"
+                >Escenario Objetivo</strong
+              >.
+            </p>
+
+            <a
+              href="#contacto"
+              class="mt-6 w-full block text-center bg-accent hover:bg-accent-hover text-white font-bold py-4 rounded-xl transition-colors shadow-lg transform hover:scale-[1.02]"
+            >
+              Adquirir mis acciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especificaciones Técnicas y Packaging -->
+    <section id="especificaciones" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            El Producto y su Presentación
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Hardware robusto y de calidad local, pensado para una instalación
+            instantánea y segura sin requerir conocimientos técnicos avanzados.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Grid de Funcionalidades -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div
+              class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand shadow-sm"
+              >
+                <i class="fas fa-microchip text-xl"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Sensor Sensible</h4>
+              <p class="text-sm text-slate-500">
+                Módulo electroquímico de precisión para detección microscópica
+                de CO en el ambiente.
+              </p>
+            </div>
+
+            <div
+              class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand shadow-sm"
+              >
+                <i class="fas fa-wifi text-xl"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">WiFiManager</h4>
+              <p class="text-sm text-slate-500">
+                Configuración nativa local sin descargas complejas ni cables de
+                red.
+              </p>
+            </div>
+
+            <div
+              class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div
+                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-accent shadow-sm"
+              >
+                <i class="fas fa-bell text-xl"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Alertas Visuales</h4>
+              <p class="text-sm text-slate-500">
+                Diodos LED integrados con rango semafórico de advertencia e
+                indicadores acústicos.
+              </p>
+            </div>
+
+            <div
+              class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div
+                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-brand shadow-sm"
+              >
+                <i class="fas fa-cubes text-xl"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Diseño Robusto</h4>
+              <p class="text-sm text-slate-500">
+                Caja optimizada de materiales térmicos de excelente resistencia
+                local.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sección de Packaging con Imágenes Reales -->
+          <div class="relative" data-aos="fade-left">
+            <div
+              class="absolute -inset-4 bg-brand-light/50 rounded-3xl transform rotate-3"
+            ></div>
+            <div
+              class="relative bg-white rounded-3xl shadow-xl border border-slate-100 p-8"
+            >
+              <div
+                class="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider"
+              >
+                Experiencia del Cliente
+              </div>
+              <h3 class="text-2xl font-bold text-slate-800 mb-4">
+                Packaging Seguro y Profesional
+              </h3>
+              <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                Cuidamos cada detalle. Entregamos el dispositivo VitalAir en
+                cajas rígidas de empaquetado, protegiendo los componentes
+                mediante bolsas antiestáticas de burbujas junto con manuales
+                impresos de instalación rápida.
+              </p>
+
+              <!-- Galería de Fotos del Packaging -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <img
+                  src="images/packaging.png"
+                  alt="Packaging de VitalAir"
+                  class="w-full h-48 md:h-64 object-contain bg-slate-50 p-4 rounded-xl shadow-md border border-slate-100 hover:scale-105 transition-all duration-300"
+                />
+                <img
+                  src="images/producto2.png"
+                  alt="Detalle del Producto"
+                  class="w-full h-48 md:h-64 object-contain bg-slate-50 p-4 rounded-xl shadow-md border border-slate-100 hover:scale-105 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Suscripción / Inversión -->
+    <section id="contacto" class="py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row"
+        >
+          <!-- Columna de Información -->
+          <div
+            class="md:w-2/5 bg-brand p-10 text-white flex flex-col justify-between relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-brand-dark/20 rounded-full blur-2xl"
+            ></div>
+            <div class="relative z-10">
+              <h3 class="text-2xl font-bold mb-4">Súmate como Socio</h3>
+              <p class="text-brand-light mb-8">
+                Completa el formulario de reserva indicando cuántas acciones
+                deseas comprar. Nuestro equipo de administración del Colegio
+                Técnico se contactará para finalizar el pago y emitir tu
+                certificado.
+              </p>
+            </div>
+
+            <div class="space-y-4 relative z-10">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-map-marker-alt text-brand-light"></i>
+                <span class="text-sm">Ushuaia, Tierra del Fuego.</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-envelope text-brand-light"></i>
+                <span class="text-sm">inversiones@vitalair.edu.ar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario Interactivo -->
+          <div class="md:w-3/5 p-10 bg-white">
+            <form id="investment-form" class="space-y-6">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >Nombre Completo</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
+                  placeholder="Ej. Juan Pérez"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >Teléfono o WhatsApp</label
+                >
+                <input
+                  type="text"
+                  id="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
+                  placeholder="Ej. +54 2901 000000"
+                />
+              </div>
+              <div>
+                <label
+                  for="relacion"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >Tu relación con el proyecto</label
+                >
+                <select
+                  id="relacion"
+                  class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all bg-white text-slate-700"
+                >
+                  <option value="familiar">Familiar de Estudiante</option>
+                  <option value="docente">Docente / Directivo</option>
+                  <option value="vecino">Vecino o Comunidad Local</option>
+                  <option value="empresa">Empresa / Comercio</option>
+                </select>
+              </div>
+
+              <!-- Mensaje de confirmación del envío -->
+              <div
+                id="success-message"
+                class="hidden bg-emerald-50 text-emerald-700 p-4 rounded-lg border border-emerald-200 flex items-center gap-3 animate-fade-in"
+              >
+                <i class="fas fa-check-circle text-xl shrink-0"></i>
+                <div>
+                  <p class="font-bold">¡Reserva de Acciones Iniciada!</p>
+                  <p class="text-sm">
+                    Recibimos tus datos. Te contactaremos por WhatsApp de
+                    inmediato.
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-lg transition-all flex justify-center items-center gap-2 shadow-lg transform active:scale-95"
+              >
+                Solicitar Acciones <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="flex justify-center items-center gap-3 mb-6">
+          <img
+            src="images/producto3.png"
+            alt="Logo VitalAir Footer"
+            class="h-10 w-10 object-contain rounded-full bg-white opacity-80"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="font-bold text-xl tracking-tight text-slate-600"
+            >VitalAir</span
+          >
+        </div>
+        <p class="text-slate-500 text-sm mb-4">
+          Proyecto de Prácticas Profesionalizantes 2026.<br />Colegio Técnico
+          Provincial Antonio Martin Marte - Turno Completo.
+        </p>
+        <p class="text-slate-400 text-xs">
+          Ushuaia, Tierra del Fuego, Argentina.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Lógica de Animaciones y Datos de Negocio Interactivos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Inicializar AOS (Animación en scroll)
+        AOS.init({
+          once: true,
+          offset: 50,
+          duration: 800,
+          easing: "ease-out-cubic",
+        });
+
+        // 2. Control de Menú de Dispositivos Móviles
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+
+        // 3. Lógica Financiera Detallada (Variables del Plan de Negocios Real)
+        const PRICE_PER_SHARE = 6538; // Precio corregido por acción
+        const TOTAL_SHARES = 50; // Pool cerrado de acciones para cobertura total de costos fijos/variables
+
+        // Escenarios oficiales del Documento financiero
+        const scenarios = {
+          objetivo: {
+            name: "Escenario Objetivo",
+            ventas: 5,
+            ingresos: 350000,
+            costosTotales: 326896,
+            gananciaNeta: 21949,
+          },
+          optimista: {
+            name: "Escenario Optimista",
+            ventas: 10,
+            ingresos: 700000,
+            costosTotales: 564072,
+            gananciaNeta: 129132,
+          },
+        };
+
+        let currentScenario = "objetivo";
+
+        // Elementos DOM Metas del Dashboard
+        const btnObjetivo = document.getElementById("btn-objetivo");
+        const btnOptimista = document.getElementById("btn-optimista");
+        const dispVentas = document.getElementById("disp-ventas");
+        const dispCostos = document.getElementById("disp-costos");
+        const dispIngresos = document.getElementById("disp-ingresos");
+        const dispGanancia = document.getElementById("disp-ganancia");
+        const textEscenarioActivo = document.getElementById(
+          "text-escenario-activo",
+        );
+
+        // Elementos DOM Simulador de Acciones
+        const slider = document.getElementById("investment-slider");
+        const sharesOutput = document.getElementById("shares-value");
+        const ownershipOutput = document.getElementById("ownership-value");
+        const investmentOutput = document.getElementById("investment-value");
+        const returnOutput = document.getElementById("return-value");
+        const roiPercentageOutput = document.getElementById("roi-percentage");
+
+        // Cálculo dinámico de métricas para inversores
+        const updateDashboard = () => {
+          const data = scenarios[currentScenario];
+          const shares = parseInt(slider.value);
+
+          // 1. Mostrar Proyecciones Generales
+          dispVentas.textContent = `${data.ventas} unidades`;
+          dispCostos.textContent = `$${data.costosTotales.toLocaleString("es-AR")}`;
+          dispIngresos.textContent = `$${data.ingresos.toLocaleString("es-AR")}`;
+          dispGanancia.textContent = `$${data.gananciaNeta.toLocaleString("es-AR")}`;
+          textEscenarioActivo.textContent = data.name;
+
+          // 2. Simulación de la Participación del Usuario
+          const investment = shares * PRICE_PER_SHARE;
+          const ownershipPercentage = (shares / TOTAL_SHARES) * 100;
+
+          // Retorno Proporcional = Capital Inicial + (Fracción de Participación * Ganancia Neta)
+          const profitShare = data.gananciaNeta * (shares / TOTAL_SHARES);
+          const totalReturn = investment + profitShare;
+          const roiPercentage = (profitShare / investment) * 100;
+
+          sharesOutput.textContent = shares;
+          ownershipOutput.textContent = ownershipPercentage.toFixed(1);
+          investmentOutput.textContent = investment.toLocaleString("es-AR");
+          returnOutput.textContent =
+            Math.round(totalReturn).toLocaleString("es-AR");
+          roiPercentageOutput.textContent = `+${roiPercentage.toFixed(1)}% ROI`;
+        };
+
+        // Switchers de Escenario
+        btnObjetivo.addEventListener("click", () => {
+          currentScenario = "objetivo";
+          btnObjetivo.className =
+            "flex-1 px-4 py-1.5 rounded-md text-sm font-bold bg-white shadow-sm text-slate-800 transition-all";
+          btnOptimista.className =
+            "flex-1 px-4 py-1.5 rounded-md text-sm font-bold text-slate-500 hover:text-slate-800 transition-all";
+          updateDashboard();
+        });
+
+        btnOptimista.addEventListener("click", () => {
+          currentScenario = "optimista";
+          btnOptimista.className =
+            "flex-1 px-4 py-1.5 rounded-md text-sm font-bold bg-white shadow-sm text-slate-800 transition-all";
+          btnObjetivo.className =
+            "flex-1 px-4 py-1.5 rounded-md text-sm font-bold text-slate-500 hover:text-slate-800 transition-all";
+          updateDashboard();
+        });
+
+        // Enlace de Control del Deslizador
+        slider.addEventListener("input", updateDashboard);
+
+        // Inicialización de la Interfaz Financiera
+        updateDashboard();
+
+        // 4. Envío Seguro del Formulario sin Recarga
+        const form = document.getElementById("investment-form");
+        const successMessage = document.getElementById("success-message");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+
+          btn.innerHTML =
+            '<i class="fas fa-circle-notch fa-spin"></i> Registrando Reserva...';
+          btn.disabled = true;
+          btn.classList.add("opacity-70");
+
+          setTimeout(() => {
+            successMessage.classList.remove("hidden");
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            btn.classList.remove("opacity-70");
+            form.reset();
+
+            // Restaurar estado del slider
+            slider.value = 2;
+            updateDashboard();
+
+            setTimeout(() => {
+              successMessage.classList.add("hidden");
+            }, 6000);
+          }, 1500);
+        });
+      });
+    </script>
+  </body>
+</html>
