@@ -1153,14 +1153,19 @@
               </div>
               <div class="flex items-center gap-3">
                 <i class="fas fa-envelope text-brand-light"></i>
-                <span class="text-sm">inversiones@vitalair.edu.ar</span>
+                <span class="text-sm">vitalair@ctpantoniomarte.edu.ar</span>
               </div>
             </div>
           </div>
 
           <!-- Formulario Interactivo -->
+          
+
+
           <div class="md:w-3/5 p-10 bg-white">
-            <form id="investment-form" class="space-y-6">
+            <form action="https://formsubmit.co/f1cfea88b8a623cd36d9ba362ffe03bf" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="http://localhost">
               <div>
                 <label
                   for="name"
@@ -1170,6 +1175,7 @@
                 <input
                   type="text"
                   id="name"
+                  name="nombre"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
                   placeholder="Ej. Juan Pérez"
@@ -1179,15 +1185,17 @@
                 <label
                   for="email"
                   class="block text-sm font-medium text-slate-700 mb-1"
-                  >Teléfono o WhatsApp</label
+                  >Email</label
                 >
                 <input
-                  type="text"
-                  id="email"
+                  type="email"
+                  id="name"
+                  name="email"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
-                  placeholder="Ej. +54 2901 000000"
+                  placeholder="Ej. contacto@mail.com"
                 />
+                
               </div>
               <div>
                 <label
@@ -1206,21 +1214,8 @@
                 </select>
               </div>
 
-              <!-- Mensaje de confirmación del envío -->
-              <div
-                id="success-message"
-                class="hidden bg-emerald-50 text-emerald-700 p-4 rounded-lg border border-emerald-200 flex items-center gap-3 animate-fade-in"
-              >
-                <i class="fas fa-check-circle text-xl shrink-0"></i>
-                <div>
-                  <p class="font-bold">¡Reserva de Acciones Iniciada!</p>
-                  <p class="text-sm">
-                    Recibimos tus datos. Te contactaremos por WhatsApp de
-                    inmediato.
-                  </p>
-                </div>
-              </div>
 
+              
               <button
                 type="submit"
                 class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-lg transition-all flex justify-center items-center gap-2 shadow-lg transform active:scale-95"
