@@ -405,52 +405,30 @@
       </div>
     </section>
 
-    <!-- Video Pitch -->
-    <section id="pitch" class="py-20 bg-slate-900 text-white relative">
-      <div
-        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        data-aos="zoom-in"
-      >
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          El Pitch del Proyecto
-        </h2>
-        <p class="text-slate-300 mb-10 max-w-2xl mx-auto">
-          Conoce más sobre la tecnología de VitalAir y el modelo de negocio
-          explicado de primera mano por los estudiantes de último año.
-        </p>
+   <!-- Video Pitch -->
+<section id="pitch" class="py-20 bg-slate-900 text-white relative">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      El Pitch del Proyecto
+    </h2>
+    <p class="text-slate-300 mb-10 max-w-2xl mx-auto">
+      Conoce más sobre la tecnología de VitalAir y el modelo de negocio
+      explicado de primera mano por los estudiantes de último año.
+    </p>
 
-        <!-- Placeholder Interactivo de Video -->
-        <div
-          class="relative w-full pt-[56.25%] rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-slate-800 group"
-        >
-          <div
-            class="absolute inset-0 flex flex-col items-center justify-center bg-[url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
-          >
-            <div
-              class="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/60 transition-colors"
-            ></div>
-
-            <div
-              class="relative z-10 transform group-hover:scale-110 transition-transform duration-300"
-            >
-              <div
-                class="w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(249,115,22,0.6)]"
-              >
-                <i class="fas fa-play text-3xl text-white ml-2"></i>
-              </div>
-            </div>
-            <p
-              class="relative z-10 mt-6 text-lg font-bold tracking-widest uppercase text-white/90"
-            >
-              Video Pitch en Producción
-            </p>
-            <p class="relative z-10 text-xs text-slate-400 mt-2">
-              Próximamente disponible para reproducir aquí mismo
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Contenedor Responsivo 16:9 -->
+    <div class="relative w-full pt-[56.25%] rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-slate-800">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/q0u0ZNeJDq8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
 
     <!-- Modelo de Negocio Canvas -->
     <section id="modelo" class="py-20 bg-white relative">
@@ -765,13 +743,7 @@
         </div>
 
         <div class="mt-10 text-center">
-          <p class="text-xs text-slate-400 italic">
-            * Datos extraídos del
-            <span class="font-semibold text-slate-500"
-              >Modelo_Negocio_Canva_2026.png</span
-            >
-            original del proyecto.
-          </p>
+
         </div>
       </div>
     </section>
@@ -896,7 +868,7 @@
                 y producción inicial, emitimos un pool selecto de
                 <strong>50 acciones</strong> de propiedad de la startup escolar.
                 El valor de aporte inicial por acción es de
-                <strong>$6.538 ARS</strong>."
+                <strong>$3.225 ARS</strong>."
               </div>
             </div>
           </div>
@@ -916,7 +888,7 @@
               Calcula tu rentabilidad
             </h3>
             <p class="text-slate-400 text-sm mb-6">
-              Valor por acción: <strong class="text-white">$6.538 ARS</strong>.
+              Valor por acción: <strong class="text-white">$3.225 ARS</strong>.
             </p>
 
             <div
@@ -944,7 +916,7 @@
                 class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-brand"
               />
               <div class="flex justify-between text-xs text-slate-400 mt-3">
-                <span>1 Acción ($6.538)</span>
+                <span>1 Acción ($3.225)</span>
                 <span>25 Acciones ($163.450)</span>
               </div>
             </div>
@@ -984,7 +956,7 @@
 
             <p class="text-xs text-slate-400 leading-relaxed">
               * El retorno comprende la devolución total de tu capital inicial
-              ($6.538 por acción) al cerrar la empresa más tu cuota de
+              ($3.225 por acción) al cerrar la empresa más tu cuota de
               dividendos de las utilidades netas proyectadas en el
               <strong class="text-white" id="text-escenario-activo"
                 >Escenario Objetivo</strong
@@ -1159,14 +1131,19 @@
               </div>
               <div class="flex items-center gap-3">
                 <i class="fas fa-envelope text-brand-light"></i>
-                <span class="text-sm">inversiones@vitalair.edu.ar</span>
+                <span class="text-sm">vitalair@ctpantoniomarte.edu.ar</span>
               </div>
             </div>
           </div>
 
           <!-- Formulario Interactivo -->
+          
+
+
           <div class="md:w-3/5 p-10 bg-white">
-            <form id="investment-form" class="space-y-6">
+            <form action="https://formsubmit.co/f1cfea88b8a623cd36d9ba362ffe03bf" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://vitalair.netlify.app">
               <div>
                 <label
                   for="name"
@@ -1176,6 +1153,7 @@
                 <input
                   type="text"
                   id="name"
+                  name="nombre"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
                   placeholder="Ej. Juan Pérez"
@@ -1185,15 +1163,17 @@
                 <label
                   for="email"
                   class="block text-sm font-medium text-slate-700 mb-1"
-                  >Teléfono o WhatsApp</label
+                  >Email</label
                 >
                 <input
-                  type="text"
-                  id="email"
+                  type="email"
+                  id="name"
+                  name="email"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
-                  placeholder="Ej. +54 2901 000000"
+                  placeholder="Ej. contacto@mail.com"
                 />
+                
               </div>
               <div>
                 <label
@@ -1212,21 +1192,8 @@
                 </select>
               </div>
 
-              <!-- Mensaje de confirmación del envío -->
-              <div
-                id="success-message"
-                class="hidden bg-emerald-50 text-emerald-700 p-4 rounded-lg border border-emerald-200 flex items-center gap-3 animate-fade-in"
-              >
-                <i class="fas fa-check-circle text-xl shrink-0"></i>
-                <div>
-                  <p class="font-bold">¡Reserva de Acciones Iniciada!</p>
-                  <p class="text-sm">
-                    Recibimos tus datos. Te contactaremos por WhatsApp de
-                    inmediato.
-                  </p>
-                </div>
-              </div>
 
+              
               <button
                 type="submit"
                 class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-lg transition-all flex justify-center items-center gap-2 shadow-lg transform active:scale-95"
@@ -1319,7 +1286,7 @@
         });
 
         // 3. Lógica Financiera Detallada (Variables del Plan de Negocios Real)
-        const PRICE_PER_SHARE = 6538; // Precio corregido por acción
+        const PRICE_PER_SHARE =3225; // Precio corregido por acción
         const TOTAL_SHARES = 50; // Pool cerrado de acciones para cobertura total de costos fijos/variables
 
         // Escenarios oficiales del Documento financiero
